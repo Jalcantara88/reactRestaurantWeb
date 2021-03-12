@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  background-color: rgba(255,0,0);
+  font-size: 1rem;
+}
+
+.parallax-hero {
+  height: 300px;
+  margin-top: -60px;
+}
+
+.social-bar {
+  margin-top: -40px;
+}
+
+.values-detail {
+  height: 40px;
+}
+
+.values-image {
+  height: 100px;
+}
+
+.food-border {
+  border: solid 3px lightblue;
+}
+
+.food-image {
+  height: 100px;
+}
+
+.menu-info-dividers {
+  border-left: solid white 3px;
+  border-right: solid white 3px;
+}
+
+.divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: grey;
+  margin-top: 20px;
+}
+
+.menu-line {
+  width: 100%;
+  height: 2px;
+  background-color: #0275d8;
+  margin-top: 12px;
+}
+
+.menu-border {
+  border: 2px solid #0275d8;
+
+
+}
+
