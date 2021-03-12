@@ -7,6 +7,9 @@ import {
     CarouselIndicators,
     CarouselCaption
   } from 'reactstrap';
+import Rating from 'react-rating';
+import fullStar from '../../assets/starFull.png';
+import emptyStar from '../../assets/starEmpty.png';
 
   const items = [
     {
@@ -47,15 +50,29 @@ function Reviews(props) {
         setActiveIndex(newIndex);
     }
 
+    //<img src={item.src} alt={item.altText} />
+    //<CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+
     const slides = items.map((item) => {
         return (
           <CarouselItem
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
             key={item.src}
+            
+            className="location-card rounded py-3 mb-3"
           >
-            <img src={item.src} alt={item.altText} />
-            <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+            <div className="col-3 profile-pic bg-white ml-3">
+
+            </div>
+            <div className="col">
+              <Rating 
+                emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+              />
+            </div>
+            
+            
           </CarouselItem>
         );
       });
@@ -69,25 +86,24 @@ function Reviews(props) {
             </div>
 
             <div className="row justify-content-center">
-                <div className="col-10">
-
-                <Carousel
-                    activeIndex={activeIndex}
-                    next={next}
-                    previous={previous}
-                    >
-                    <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-                    {slides}
-                    
-                </Carousel>
                 
+                    <Carousel
+                        activeIndex={activeIndex}
+                        next={next}
+                        previous={previous}
+                        className="col-10"
+                        >
+                        {slides}
+                        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                        
+                        
+                    </Carousel>
                 
-                </div>
-                
+                 
             </div>
             <div className="row justify-content-center pt-2 pb-4">
                 <div className="col-4">
-                    <Button>Leave a Review</Button>
+                    <Button style={{backgroundColor: "orange", border: 0}}>Leave a Review</Button>
                 </div>
             </div>
         </>

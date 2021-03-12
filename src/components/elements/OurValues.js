@@ -16,30 +16,36 @@ function Values() {
                 
                 
                 
-                <div className="col-10 mx-auto">
-                    <div className="row">
-                        <div className="col-4">
-                            <div className="rounded-top bg-danger values-image">
-                                image
+                <div className="col-12 col-sm-10 mx-auto">
+                    <div className="row justify-content-center">
+                        <div className="col-10 col-sm-4">
+                            <div className="rounded-top bg-danger values-image values-image-one pt-2">
+                                <strong className="text-white rounded location-card px-2">FRESH</strong>
                             </div>
-                            <div className="rounded-bottom bg-warning values-detail">
-                                details
-                            </div>
-                        </div>
-                        <div className="col-4">
-                            <div className="rounded-top bg-danger values-image">
-                                image
-                            </div>
-                            <div className="rounded-bottom bg-warning values-detail">
-                                details
+                            <div className="rounded-bottom bg-danger text-white">
+                                <p>
+                                    all food is made from scratch, daily!
+                                </p>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <div className="rounded-top bg-danger values-image">
-                                image
+                        <div className="col-10 col-sm-4">
+                            <div className="rounded-top bg-danger values-image values-image-two pt-2">
+                                <strong className="text-white rounded location-card px-2">UNIQUE</strong>
                             </div>
-                            <div className="rounded-bottom bg-warning values-detail">
-                                details
+                            <div className="rounded-bottom bg-danger text-white">
+                                <p>
+                                    we create a new menu every week!
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col-10 col-sm-4">
+                            <div className="rounded-top bg-danger values-image values-image-three pt-2">
+                                <strong className="text-white rounded location-card px-2">TASTY</strong>
+                            </div>
+                            <div className="rounded-bottom bg-danger text-white">
+                                <p>
+                                    only the most delicious fusions!
+                                </p>
                             </div>
                         </div>
                     </div>

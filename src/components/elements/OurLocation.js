@@ -1,15 +1,18 @@
 import React from 'react';
+import { Parallax } from 'react-parallax';
+import locationImage from '../../assets/parallaxLocation.jpg';
+
 
 function Location() {
     return(
         <>
-            <div className="row-fluid justify-content-center bg-primary py-3 pb-5">
-                
-                    <h2 className="text-white text-center">our location</h2>
-               
-                <div className="col-10 mx-auto">
+
+            <Parallax blur={0} bgImage={locationImage} bgImageAlt="parallax image" strength={200} className="parallax-location pt-5" style={{width: '100%',
+                height: 350}}>
+            
+                <div className="col-10 mx-auto text-white location-card rounded">
                     <div className="row justify-content-center">
-                        <div className="col-3 mr-2">
+                        <div className="col-4 mr-2">
                             <div className="row"><p className="text-left"><strong>ADDRESS:</strong>some address</p></div>
                             <div className="row"><p className="text-left"><strong>HOURS:</strong> some hours schedule</p></div>
                             <div className="row"><p className="text-left"><strong>PHONE:</strong>(123) 456 - 7890</p></div>
@@ -20,10 +23,9 @@ function Location() {
                         </div>
                     </div>
                 </div>
-                
-                
-            </div>
-            
+
+            </Parallax>
+        
         </>
     );
 }

@@ -38,22 +38,26 @@
 }
 
 .navbar {
-  background-color: rgba(255,0,0);
+  background-color: rgba(158,17,17, 0.5);
   font-size: 1rem;
 }
 
-.parallax-hero {
-  height: 300px;
-  margin-top: -60px;
+.location-card {
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
+.parallax-hero {
+  margin-top: -80px;
+}
+
 
 .social-bar {
-  margin-top: -40px;
+  position: relative;
+  top: 150px;
+  
 }
 
-.values-detail {
-  height: 40px;
-}
+
 
 .values-image {
   height: 100px;
@@ -91,4 +95,25 @@
 
 
 }
+
+.profile-pic {
+  border-radius: 100%;
+  height: 100px;
+}
+
+.values-image-one {
+  background-image: url('../src/assets/valuesImage0.png');
+  background-size: cover;
+}
+
+.values-image-two {
+  background-image: url('../src/assets/valuesImage1.png');
+  background-size: cover;
+}
+
+.values-image-three {
+  background-image: url('../src/assets/valuesImage2.png');
+  background-size: cover;
+}
+
 
