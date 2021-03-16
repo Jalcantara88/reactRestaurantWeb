@@ -16,7 +16,7 @@ function Values() {
                 
                 
                 
-                <div className="col-12 col-sm-10 mx-auto">
+                <div className="col-12 col-sm-10 col-md-8 col-xl-6 mx-auto">
                     <div className="row justify-content-center">
                         <div className="col-10 col-sm-4">
                             <div className="rounded-top bg-danger values-image values-image-one pt-2">

@@ -7,9 +7,13 @@ import {
     CarouselIndicators,
     CarouselCaption
   } from 'reactstrap';
+
+
+
 import Rating from 'react-rating';
 import fullStar from '../../assets/starFull.png';
 import emptyStar from '../../assets/starEmpty.png';
+import profilePic from '../../assets/profilePic.png';
 
   const items = [
     {
@@ -28,6 +32,8 @@ import emptyStar from '../../assets/starEmpty.png';
       caption: 'Slide 3'
     }
   ];
+
+
 
 function Reviews(props) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -50,27 +56,36 @@ function Reviews(props) {
         setActiveIndex(newIndex);
     }
 
-    //<img src={item.src} alt={item.altText} />
-    //<CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+
 
     const slides = items.map((item) => {
         return (
           <CarouselItem
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
-            key={item.src}
+            key={item.toString()}
             
-            className="location-card rounded py-3 mb-3"
+            className="location-card rounded p-3"
           >
-            <div className="col-3 profile-pic bg-white ml-3">
-
+            <div className="row mb-4">
+              <div className="col-4">
+                <img className="img-fluid" src={profilePic} />
+                
+              </div>
+              <div className="col-8">
+                <div className="text-white">
+                  <p>"lorem ipsum review text"</p>
+                  <h5>- Reviewer Name</h5>
+                </div>
+                <Rating 
+                  emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                  fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                  initialRating={3}
+                  readonly={true}
+                />
+              </div>
             </div>
-            <div className="col">
-              <Rating 
-                emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
-                fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
-              />
-            </div>
+           
             
             
           </CarouselItem>
@@ -91,7 +106,8 @@ function Reviews(props) {
                         activeIndex={activeIndex}
                         next={next}
                         previous={previous}
-                        className="col-10"
+                        className="col-10 col-md-8 col-xl-6"
+                        
                         >
                         {slides}
                         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
@@ -102,7 +118,7 @@ function Reviews(props) {
                  
             </div>
             <div className="row justify-content-center pt-2 pb-4">
-                <div className="col-4">
+                <div className="col">
                     <Button style={{backgroundColor: "orange", border: 0}}>Leave a Review</Button>
                 </div>
             </div>
