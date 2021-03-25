@@ -24,7 +24,7 @@ function Values() {
                             </div>
                             <div className="rounded-bottom bg-danger text-white">
                                 <p>
-                                    all food is made from scratch, daily!
+                                    food made from scratch, daily!
                                 </p>
                             </div>
                         </div>
