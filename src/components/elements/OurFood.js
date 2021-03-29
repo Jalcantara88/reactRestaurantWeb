@@ -10,60 +10,9 @@ import {
   import itemImage1 from '../../../src/assets/foodImages/lunch/burger.jpg';
   import itemImage2 from '../../../src/assets/foodImages/dinner/salmon.jpg';
   import itemImage3 from '../../../src/assets/foodImages/dinner/hamHock.jpg';
+  import {FEATUREDFOOD} from '../../shared/featuredFood';
 
-  const items = [
-    {
-      one: {
-        name: 'item name',
-        src: '../../../src/assets/valuesImage1.png',
-        detail: 'details'
-      },
-      two: {
-        name: 'item name',
-        src: '../src/assets/valuesImage1.png',
-        detail: 'details'
-      },
-      three: {
-        name: 'item name',
-        src: '../src/assets/valuesImage1.png',
-        detail: 'details'
-      }
-    },
-    {
-        one: {
-          name: 'item name',
-          src: '../../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        two: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        three: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        }
-      },
-      {
-        one: {
-          name: 'item name',
-          src: '../../src/assets/valuesImage2.png',
-          detail: 'details'
-        },
-        two: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        three: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        }
-      },
-  ];
+  
 
 function Food() {
 
@@ -72,13 +21,13 @@ function Food() {
 
     const next = () => {
         if (animating) return;
-        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+        const nextIndex = activeIndex === FEATUREDFOOD.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
     }
 
     const previous = () => {
         if (animating) return;
-        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+        const nextIndex = activeIndex === 0 ? FEATUREDFOOD.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     }
 
@@ -87,7 +36,7 @@ function Food() {
         setActiveIndex(newIndex);
     }
 
-    const slides = items.map((item) => {
+    const slides = FEATUREDFOOD.map((item) => {
         console.log(item);
         console.log(item.one.src);
         

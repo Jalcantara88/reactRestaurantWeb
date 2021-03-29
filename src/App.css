@@ -67,6 +67,15 @@
   border: solid 3px lightblue;
 }
 
+.foodItemImage {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.foodItem {
+  border-radius: 50px;
+}
 
 
 
@@ -114,6 +123,10 @@
 .values-image-three {
   background-image: url('../src/assets/valuesImage2.png');
   background-size: cover;
+}
+
+.menuInfo {
+  background-image: url('../src/assets/parallaxHero.jpg');
 }
 
 

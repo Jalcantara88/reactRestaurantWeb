@@ -4,17 +4,22 @@ import locationImage from '../../assets/parallaxLocation.jpg';
 //import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps";
 //import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import GoogleMapReact from 'google-map-react';
+import {RESTAURANTINFO} from '../../shared/restaurantInfo';
 
 
 
 
 function Location() {
+
+    const info = RESTAURANTINFO;
+
     const Marker = () => {
         return(
             <div className="m-0 bg-danger text-center py-1" style={{width: "40px", borderRadius: "100%"}}><p style={{marginLeft: "-2px", marginTop: "8px", marginBottom: "10px"}}>HERE!</p></div>
         );
         
     }
+
     return(
         <>
 
@@ -24,10 +29,10 @@ function Location() {
                 <div className="col-10 col-md-8 col-xl-6 mx-auto text-white location-card rounded">
                     <div className="row justify-content-center px-0 py-3">
                         <div className="col-4 mr-2">
-                            <div className="row"><p className="text-left"><strong>ADDRESS:</strong>some address</p></div>
-                            <div className="row"><p className="text-left"><strong>HOURS:</strong> some hours schedule</p></div>
-                            <div className="row"><p className="text-left"><strong>PHONE:</strong>(123) 456 - 7890</p></div>
-                            <div className="row"><p className="text-left"><strong>EMAIL:</strong>example @ website.com</p></div>
+                            <div className="row"><p className="text-left"><strong>ADDRESS:</strong>{info.address}</p></div>
+                            <div className="row"><p className="text-left"><strong>HOURS:</strong>{info.hours}</p></div>
+                            <div className="row"><p className="text-left"><strong>PHONE:</strong>{info.phone}</p></div>
+                            <div className="row"><p className="text-left"><strong>EMAIL:</strong>{info.email}</p></div>
                         </div>
                         <div className="col-7">
                             <div className="w-100 h-100">

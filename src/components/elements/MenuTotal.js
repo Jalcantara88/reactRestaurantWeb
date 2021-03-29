@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 
-function Total() {
+function Total({order}) {
     return(
         <>
-            <div className="row justify-content-center bg-danger py-1">
+            <div className="row justify-content-center bg-danger py-1 align-items-center">
                 <div className="col-3"><h2>TOTAL:</h2></div>
                 <div className="col-7">
                     <Button className="bg-white">
-                        <h3 className="m-0 p-0 text-dark">$ PRICE | PLACE ORDER</h3>
+                        <h3 className="m-0 p-0 text-dark">$ {order.total} | PLACE ORDER</h3>
                     </Button>
                 </div>
             </div>

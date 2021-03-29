@@ -5,7 +5,7 @@ import SocialBar from './SocialBar';
 
 function ParallaxHero() {
     return(
-        <>
+        <div id="top">
             
 
             <Parallax blur={0} bgImage={heroImage} bgImageAlt="parallax image" strength={200} className="parallax-hero" style={{width: '100%',
@@ -14,7 +14,7 @@ function ParallaxHero() {
                 <SocialBar />
             </Parallax>
             
-        </>   
+        </div>   
 
     );
 }
