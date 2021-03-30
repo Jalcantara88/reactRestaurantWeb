@@ -1,45 +1,54 @@
 export const LUNCH = {
     name: 'Lunch',
-    time: 'time frame',
+    time: '9AM to 12PM',
     option1: 'appetizers',
     option2: 'entrees',
     appetizers: [
         {
-            name: 'app1',
-            price: '9.99'
+            name: 'Pizza Bites',
+            price: '9.99',
+            image: 'lunch/appetizer/pizzaBites.jpg'
         },
         {
-            name: 'app2',
-            price: '9.99'
+            name: 'Salmon Bites',
+            price: '9.99',
+            image: 'lunch/appetizer/salmonBites.jpeg'
         },
         {
-            name: 'app3',
-            price: '9.99'
+            name: 'Cheese Toast',
+            price: '9.99',
+            image: 'lunch/appetizer/toastCheeseJam.jpg'
         },
     ],
     entrees: [
         {
-            name: 'entree1',
-            price: '9.99'
+            name: '1/2LB Burger',
+            price: '9.99',
+            image: 'lunch/burger.jpg'
         },
         {
-            name: 'entree2',
-            price: '9.99'
+            name: 'Hot Wings',
+            price: '9.99',
+            image: 'lunch/wings.jpg'
         },
         {
-            name: 'entree3',
-            price: '9.99'
+            name: 'Shish Kebab',
+            price: '9.99',
+            image: 'lunch/kebab.jpg'
         },{
-            name: 'entree4',
-            price: '9.99'
+            name: 'Club Sammie',
+            price: '9.99',
+            image: 'lunch/clubSandwich.jpg'
         },
         {
-            name: 'entree5',
-            price: '9.99'
+            name: 'Sampler Bites',
+            price: '9.99',
+            image: 'lunch/sandwichSampler.jpg'
         },
         {
-            name: 'entree6',
-            price: '9.99'
+            name: 'Loaded Skins',
+            price: '9.99',
+            image: 'lunch/loadedSweetPotato.jpg'
         },
     ]
 }

@@ -14,6 +14,7 @@ import Rating from 'react-rating';
 import fullStar from '../../assets/starFull.png';
 import emptyStar from '../../assets/starEmpty.png';
 import profilePic from '../../assets/profilePic.png';
+import { REVIEWS } from '../../shared/reviews';
 
   const items = [
     {
@@ -58,29 +59,29 @@ function Reviews(props) {
 
 
 
-    const slides = items.map((item) => {
+    const slides = REVIEWS.map((item) => {
         return (
           <CarouselItem
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
             key={item.toString()}
             
-            className="location-card rounded p-3"
+            className="location-card rounded pl-4 p-3"
           >
             <div className="row mb-4">
               <div className="col-4">
-                <img className="img-fluid" src={profilePic} />
+                <img className="img profileImage" src={`../profileImages/${item.image}`} />
                 
               </div>
-              <div className="col-8">
+              <div className="col-8 pt-3">
                 <div className="text-white">
-                  <p>"lorem ipsum review text"</p>
-                  <h5>- Reviewer Name</h5>
+                  <p>"{item.quote}"</p>
+                  <h5>- {item.name}</h5>
                 </div>
                 <Rating 
                   emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
                   fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
-                  initialRating={3}
+                  initialRating={item.rating}
                   readonly={true}
                 />
               </div>

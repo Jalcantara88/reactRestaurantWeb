@@ -3,7 +3,6 @@ import Dessert from './elements/MenuDessert';
 import HappyHour from './elements/MenuHappyHour';
 import Info from './elements/MenuInfo';
 //import Lunch from './elements/MenuLunch';
-import itemImage1 from '../../src/assets/foodImages/lunch/burger.jpg';
 import OrderView from './elements/MenuViewOrder';
 import { Button } from 'reactstrap';
 import { LUNCH } from '../shared/lunch';
@@ -11,34 +10,26 @@ import { DINNER } from '../shared/dinner';
 import { DRINKS } from '../shared/drinks';
 import { HAPPYHOUR } from '../shared/happyHour';
 import { DESSERT } from '../shared/dessert';
+import Total from '../components/elements/MenuTotal';
 
-function Total() {
-    return(
-        <>
-            <div className="row justify-content-center bg-danger py-1">
-                <div className="col-3"><h2>TOTAL:</h2></div>
-                <div className="col-7">
-                    <Button className="bg-white">
-                        <h3 className="m-0 p-0 text-dark">$ PRICE | PLACE ORDER</h3>
-                    </Button>
-                </div>
-            </div>
-        </>
-    );
-}
+
+
+
 
 const RenderFoodItem = ({item}) => {
 
+    
+
     return(
-        <div classname="col">
-            <div className="row  foodItem bg-dark p-2 mx-2 align-items-center mb-2">
+        <div classname="col-10 col-md-6 col-lg-4 p-0">
+            <div className="row  foodItemBG foodItem py-0 px-2 mx-2 align-items-center mb-2">
                 <div className="col-2 p-0 m-0">
-                    <img src={itemImage1} className="foodItemImage" />
+                    <img src={`../foodImages/${item.image}`} className="foodItemImage" />
                 </div>
-                <div className="col-10 py-1 pr-0 pl-4">
-                    <h4 className="text-white">
-                         {item.name} | {item.price}
-                    </h4>
+                <div className="col-10 py-1 pr-1 pt-2">
+                    <p style={{fontSize: "1.5em"}} className="text-white text-right pt-1">
+                         {item.name}<span className="text-dark"> {item.price}</span>
+                    </p>
                 </div> 
             </div>
         </div>
@@ -64,21 +55,21 @@ function RenderFood({food}){
         <>
         <div className="row">
                 <div className="col-4"><div className="divider-line"></div></div>
-                <div className="col-4"><h2 className="text-center">{food.name}</h2></div>
+                <div className="col-4"><h2 className="text-center text-dark">{food.name}</h2></div>
                 <div className="col-4"><div className="divider-line"></div></div>
                 <div className="col-12">
-                    <h5 className="text-center">{food.time}</h5>
+                    <h5 className="text-center text-muted">{food.time}</h5>
                 </div>
             </div>
             <div className="row justify-content-center p-0">
             
                 
-                    <div className="col-3  bg-primary text-white rounded-top">{food.option1}</div>
-                    <div className="col-7 col-md-5 col-lg-3"></div>
+                    <div className="col-3 foodLabelBG text-white rounded-top">{food.option1}</div>
+                    <div className="col-7 col-md-5"></div>
             </div>  
                 
             <div className="row justify-content-center pb-3">
-                <div className="col-10 col-md-8 col-lg-6 menu-border py-3 mb-3">
+                <div className="col-10 col-md-8 menu-border py-3 mb-3">
                     <div className="row justify-content-center">
                         {appetizers}
                     </div>
@@ -87,13 +78,13 @@ function RenderFood({food}){
             </div>
             <div className="row justify-content-center p-0">
 
-                <div className="col-3 bg-primary text-white rounded-top">{food.option2}</div>
-                <div className="col-7 col-md-5 col-lg-3"></div>
+                <div className="col-3 foodLabelBG text-white rounded-top">{food.option2}</div>
+                <div className="col-7 col-md-5"></div>
             
             </div>
             <div className="row justify-content-center pb-3">
-                <div className="col-10 col-md-8 col-lg-6 menu-border py-3">
-                    <div className="row justify-content-center">
+                <div className="col-10 col-md-8 menu-border py-3 px-0">
+                    <div className="row justify-content-center p-0">
                         {entrees}
                     </div>
                 </div>
@@ -114,23 +105,28 @@ function RenderFoodAlt({food}){
     return(
         <>
         <div className="row">
-                <div className="col-4"><div className="divider-line"></div></div>
-                <div className="col-4"><h2 className="text-center">{food.name}</h2></div>
-                <div className="col-4"><div className="divider-line"></div></div>
+            <div className="col-4"><div className="divider-line"></div></div>
+            <div className="col-4"><h2 className="text-center text-dark">{food.name}</h2></div>
+            <div className="col-4"><div className="divider-line"></div></div>
+        </div>
+        <div className="row justify-content-center">
+        
+            <div className="col-12">
+                <h5 className="text-center text-muted">{food.time}</h5>
             </div>
-            <div className="row justify-content-center pb-3">
-            
-                <div className="col-12">
-                    <h5 className="text-center">{food.time}</h5>
-                </div>
-                
-                <div className="col-10 col-md-8 col-lg-6 py-3 mb-3">
-                    <div className="row justify-content-center">
-                        {items}
-                    </div>
-                </div>
 
-            </div>
+        </div> 
+        <div className="row justify-content-center">
+            <div className="col-12 col-md-10 col-lg-8">
+                <div className="row justify-content-center  pb-3">
+                    {items}
+                </div>
+            </div>        
+        </div>  
+        
+                
+
+            
         </>
     )
 
@@ -141,7 +137,7 @@ class Menu extends Component {
         super(props);
         this.state = {
             order: [],
-            total: "0.00"
+            total: 0.00
         }
     }
 

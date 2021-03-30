@@ -1,45 +1,54 @@
 export const DINNER = {
     name: 'Dinner',
-    time: 'time frame',
+    time: '4PM to 10PM',
     option1: 'appetizers',
     option2: 'entrees',
     appetizers: [
         {
-            name: 'app1',
-            price: '9.99'
+            name: 'Cucumber',
+            price: '9.99',
+            image: 'dinner/appetizer/cucumberCaviar.jpg'
         },
         {
-            name: 'app2',
-            price: '9.99'
+            name: 'Prociutto',
+            price: '9.99',
+            image: 'dinner/appetizer/prociutto.jpg'
         },
         {
-            name: 'app3',
-            price: '9.99'
+            name: 'Hummus',
+            price: '9.99',
+            image: 'dinner/appetizer/hummus.jpg'
         },
     ],
     entrees: [
         {
-            name: 'entree1',
-            price: '9.99'
+            name: 'Carne Asada',
+            price: '9.99',
+            image: 'dinner/carneAsada.jpg'
         },
         {
-            name: 'entree2',
-            price: '9.99'
+            name: 'Salmon',
+            price: '9.99',
+            image: 'dinner/salmon.jpg'
         },
         {
-            name: 'entree3',
-            price: '9.99'
+            name: 'Steak',
+            price: '9.99',
+            image: 'dinner/steak.jpg'
         },{
-            name: 'entree4',
-            price: '9.99'
+            name: 'Ham Hock',
+            price: '9.99',
+            image: 'dinner/hamHock.jpg'
         },
         {
-            name: 'entree5',
-            price: '9.99'
+            name: 'Snapper',
+            price: '9.99',
+            image: 'dinner/snapper.jpg'
         },
         {
-            name: 'entree6',
-            price: '9.99'
+            name: 'Teriyaki',
+            price: '9.99',
+            image: 'dinner/teriyaki.jpg'
         },
     ]
 }

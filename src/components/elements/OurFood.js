@@ -7,9 +7,7 @@ import {
     CarouselIndicators,
     CarouselCaption
   } from 'reactstrap';
-  import itemImage1 from '../../../src/assets/foodImages/lunch/burger.jpg';
-  import itemImage2 from '../../../src/assets/foodImages/dinner/salmon.jpg';
-  import itemImage3 from '../../../src/assets/foodImages/dinner/hamHock.jpg';
+  
   import {FEATUREDFOOD} from '../../shared/featuredFood';
 
   
@@ -51,7 +49,7 @@ function Food() {
                     <div className="col-12 col-md-4 mb-2">
                         
                         <div className=" food-image" >
-                            <img src={itemImage1} className="img-fluid rounded-top"/>
+                            <img src={`../foodImages/${item.one.src}`} className="img-fluid rounded-top"/>
                         </div>
                         <div className="bg-dark rounded-bottom py-2 text-white">
                             {item.one.name}
@@ -59,7 +57,7 @@ function Food() {
                     </div>
                     <div className="col-12 col-md-4 mb-2">
                         <div className=" food-image" style={{backgroundImage: `url(${item.one.src})`}}>
-                            <img src={itemImage2} className="img-fluid rounded-top"/>
+                            <img src={`../foodImages/${item.two.src}`} className="img-fluid rounded-top"/>
                         </div>
                         <div className="bg-dark rounded-bottom py-2 text-white">
                             {item.two.name}
@@ -67,7 +65,7 @@ function Food() {
                     </div>
                     <div className="col-12 col-md-4 mb-2">
                         <div className=" food-image" style={{backgroundImage: `url(${item.one.src})`}}>
-                            <img src={itemImage3} className="img-fluid rounded-top"/>
+                            <img src={`../foodImages/${item.three.src}`} className="img-fluid rounded-top"/>
                         </div>
                         <div className="bg-dark rounded-bottom py-2 text-white">
                             {item.three.name}
@@ -102,8 +100,8 @@ function Food() {
                     
                     {slides}
                     
-                    <CarouselControl className="bg-dark rounded" direction="prev" directionText="Previous" onClickHandler={previous} />
-                    <CarouselControl className="bg-dark rounded" direction="next" directionText="Next" onClickHandler={next} />
+                    <CarouselControl className="dark" direction="prev" directionText="Previous" onClickHandler={previous} />
+                    <CarouselControl className="dark" direction="next" directionText="Next" onClickHandler={next} />
                     
                     
                 </Carousel>
@@ -115,7 +113,7 @@ function Food() {
                 
             </div>
                 <div className="col-6 mt-3 mx-auto">
-                    <Button className="bg-danger b-0">GO TO MENU</Button>
+                    <Button className="redGradient" style={{border: 0}}>GO TO MENU</Button>
                 </div>
             <hr />
         </>

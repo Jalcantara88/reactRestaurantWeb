@@ -1,30 +1,36 @@
 export const HAPPYHOUR = {
     name: 'Happy Hour',
-    time: '11AM to 3PM',
+    time: '12PM to 4PM',
     items: [
         {
-            name: 'item1',
-            price: '9.99'
+            name: 'Burger',
+            price: '9.99',
+            image: 'lunch/burger.jpg'
         },
         {
-            name: 'item2',
-            price: '9.99'
+            name: 'Wings',
+            price: '9.99',
+            image: 'lunch/wings.jpg'
         },
         {
-            name: 'item3',
-            price: '9.99'
+            name: 'Beer',
+            price: '9.99',
+            image: 'drinks/alcoholic/beer.jpg'
         },
         {
-            name: 'item4',
-            price: '9.99'
+            name: 'Sangria',
+            price: '9.99',
+            image: 'drinks/alcoholic/sangria.jpg'
         },
         {
-            name: 'item5',
-            price: '9.99'
+            name: 'Steak',
+            price: '9.99',
+            image: 'dinner/steak.jpg'
         },
         {
-            name: 'item6',
-            price: '9.99'
+            name: 'Teriyaki',
+            price: '9.99',
+            image: 'dinner/teriyaki.jpg'
         },
     ],
 }

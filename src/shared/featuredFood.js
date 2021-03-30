@@ -3,53 +3,54 @@
 export const FEATUREDFOOD = [
     {
       one: {
-        name: 'item name',
-        src: '../../../assets/foodImages/lunch/burger.jpg',
+        name: 'Burger',
+        src: 'lunch/burger.jpg',
         detail: 'details'
       },
       two: {
-        name: 'item name',
-        src: require('../assets/foodImages/lunch/burger.jpg'),
+        name: 'Salmon',
+        src: 'dinner/salmon.jpg',
         detail: 'details'
       },
       three: {
-        name: 'item name',
-        src: require('../assets/foodImages/lunch/burger.jpg'),
+        name: 'Steak',
+        src: 'dinner/steak.jpg',
         detail: 'details'
       }
     },
     {
-        one: {
-          name: 'item name',
-          src: '../../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        two: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        three: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        }
+      one: {
+        name: 'Wings',
+        src: 'lunch/wings.jpg',
+        detail: 'details'
       },
-      {
-        one: {
-          name: 'item name',
-          src: '../../src/assets/valuesImage2.png',
-          detail: 'details'
-        },
-        two: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        },
-        three: {
-          name: 'item name',
-          src: '../src/assets/valuesImage1.png',
-          detail: 'details'
-        }
+      two: {
+        name: 'Carne Asada',
+        src: 'dinner/carneAsada.jpg',
+        detail: 'details'
       },
+      three: {
+        name: 'Salmon Bites',
+        src: 'lunch/appetizer/salmonBites.jpeg',
+        detail: 'details'
+      }
+    },
+    {
+      one: {
+        name: 'Cucumber Caviar',
+        src: 'dinner/appetizer/cucumberCaviar.jpg',
+        detail: 'details'
+      },
+      two: {
+        name: 'Shish Kebab',
+        src: 'lunch/kebab.jpg',
+        detail: 'details'
+      },
+      three: {
+        name: 'Club Sammie',
+        src: 'lunch/clubSandwich.jpg',
+        detail: 'details'
+      }
+    },
+    
   ];

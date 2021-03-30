@@ -3,28 +3,34 @@ export const DESSERT = {
     time: 'All Day',
     items: [
         {
-            name: 'dessert1',
-            price: '9.99'
+            name: 'Cheesecake',
+            price: '9.99',
+            image: 'dessert/cheesecake.jpeg'
         },
         {
-            name: 'dessert2',
-            price: '9.99'
+            name: 'Ice Cream',
+            price: '9.99',
+            image: 'dessert/icecreamSandwich.jpg'
         },
         {
-            name: 'dessert3',
-            price: '9.99'
+            name: 'Fruit Jello',
+            price: '9.99',
+            image: 'dessert/jello.jpg'
         },
         {
-            name: 'dessert4',
-            price: '9.99'
+            name: 'Lava Cake',
+            price: '9.99',
+            image: 'dessert/lavaCake.jpg'
         },
         {
-            name: 'dessert5',
-            price: '9.99'
+            name: 'Macarons',
+            price: '9.99',
+            image: 'dessert/macarons.jpeg'
         },
         {
-            name: 'dessert6',
-            price: '9.99'
+            name: 'Milk Shake',
+            price: '9.99',
+            image: 'dessert/milkshake.jpg'
         },
     ],
 }

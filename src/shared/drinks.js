@@ -5,41 +5,50 @@ export const DRINKS = {
     option2: 'alcoholic',
     appetizers: [
         {
-            name: 'drink1',
-            price: '9.99'
+            name: 'Grapefruit',
+            price: '9.99',
+            image: 'drinks/grapefruitDrink.jpg'
         },
         {
-            name: 'drink2',
-            price: '9.99'
+            name: 'Watermelon',
+            price: '9.99',
+            image: 'drinks/watermelonFizz.jpg'
         },
         {
-            name: 'drink3',
-            price: '9.99'
+            name: 'Strawberry',
+            price: '9.99',
+            image: 'drinks/strawberryDrink.jpg'
         },
     ],
     entrees: [
         {
-            name: 'drink1',
-            price: '9.99'
+            name: 'Beer',
+            price: '9.99',
+            image: 'drinks/alcoholic/beer.jpg'
         },
         {
-            name: 'drink2',
-            price: '9.99'
+            name: 'Wine',
+            price: '9.99',
+            image: 'drinks/alcoholic/redWine.jpg'
         },
         {
-            name: 'drink3',
-            price: '9.99'
+            name: 'Sangria',
+            price: '9.99',
+            image: 'drinks/alcoholic/sangria.jpg'
         },{
-            name: 'drink4',
-            price: '9.99'
+            name: 'Martini',
+            price: '9.99',
+            image: 'drinks/alcoholic/blueCocktail.jpg'
         },
         {
-            name: 'drink5',
-            price: '9.99'
+            name: 'Rosemary',
+            price: '9.99',
+            image: 'drinks/alcoholic/rosemaryGrapefruitCocktail.jpeg'
         },
         {
-            name: 'drink6',
-            price: '9.99'
+            name: 'Hot Mama',
+            price: '9.99',
+            image: 'drinks/alcoholic/sweetHotMama.jpg'
         },
     ]
 }
