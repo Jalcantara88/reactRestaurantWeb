@@ -5,17 +5,102 @@ import {
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
-    CarouselCaption
+    CarouselCaption,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
   } from 'reactstrap';
-  
-  import {FEATUREDFOOD} from '../../shared/featuredFood';
+import Rating from 'react-rating';
+import fullStar from '../../assets/starFull.png';
+import emptyStar from '../../assets/starEmpty.png';
+import {FEATUREDFOOD} from '../../shared/featuredFood';
+import { REVIEWS } from '../../shared/reviews';
 
+function FeaturedFoodModal(props) {
+
+    const topReviews = REVIEWS.map((item) => {
+        return(
+            <div className="col-12 bg-dark rounded mb-1 py-1">
+                <div className="row text-white align-items-center">
+                    <div className="col-2"><div className="bg-danger text-center " style={{borderRadius: "100%", height: "30px", width: "30px", paddingTop: "2px"}}>{item.rating}</div></div>
+                    <div className="col ml-2" ><p className="p-0 m-0 font-italic small" style={{lineHeight: 1, fontSize: ".7em"}}>"{item.quote}"</p></div>
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <div>
+            <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" style={{marginTop: "15%"}}>
+                <ModalHeader toggle={props.toggle} className="p-0 px-2">
+                    
+                </ModalHeader>
+                <ModalBody>
+                    <div className="row pr-2">
+                        <div className="col-7">
+                            <div className="row-fluid">
+                                <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
+
+                            </div>
+                            <div className="row no-gutters mt-2" >
+                                <div className="col mr-1">
+                                    <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
+                                </div>
+                                <div className="col mr-1">
+                                    <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
+                                </div>
+                                <div className="col mr-1">
+                                    <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
+                                </div>
+                                <div className="col">
+                                    <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="col">
+                            <div className="row"><h3 className="">{props.selectedFeaturedFood.name}</h3></div>
+                            <div className="row border-top border-bottom border-danger"><p className="small my-1 mb-2 px-1 four-line-limit" style={{lineHeight: "1"}}>{props.selectedFeaturedFood.detail}</p></div>
+                            <div className="row pt-1">
+                                <div className="col-3 p-0"><p className="small" style={{lineHeight: "90%"}}>overall rating</p></div>
+                                <div className="col">
+                                    <Rating 
+                                        emptySymbol={<img src={emptyStar} className="icon" style={{height: 20, width: 20}} />}
+                                        fullSymbol={<img src={fullStar} className="icon" style={{height: 20, width: 20}} />}
+                                        initialRating={4}
+                                        readonly={true}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row justify-content-center">{topReviews}</div>
+                            <div className="row justify-content-center">
+                                <Button className="bg-danger px-4" href="/menu" style={{border: 0, borderRadius: 20}}>go to menu</Button>
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
+                </ModalBody>
+               
+            </Modal>
+        </div>
+    )
+}
   
 
 function Food() {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+
+    const [modal, setModal] = useState(false);
+    const [selectedFeaturedFood, setSelectedFood] = useState({});
+
+    const toggle = () => setModal(!modal);
+    const selectFood = (featuredFood) => setSelectedFood(featuredFood); 
+
 
     const next = () => {
         if (animating) return;
@@ -29,14 +114,14 @@ function Food() {
         setActiveIndex(nextIndex);
     }
 
-    const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-    }
+    
 
     const slides = FEATUREDFOOD.map((item) => {
-        console.log(item);
-        console.log(item.one.src);
+        //console.log(item.one);
+        console.log(selectedFeaturedFood);
+
+
+        
         
         return (
           <CarouselItem
@@ -48,14 +133,14 @@ function Food() {
                 <div className="row justify-content-center px-5 g-2">
                     <div className="col-12 col-md-4 mb-2">
                         
-                        <div className=" food-image" >
+                        <div className=" food-image" onClick={() => {selectFood(item.one); toggle();}}>
                             <img src={`../foodImages/${item.one.src}`} className="img-fluid rounded-top"/>
                         </div>
                         <div className="bg-dark rounded-bottom py-2 text-white">
                             {item.one.name}
                         </div>
                     </div>
-                    <div className="col-12 col-md-4 mb-2">
+                    <div className="col-12 col-md-4 mb-2 " onClick={() => {selectFood(item.two); toggle();}}>
                         <div className=" food-image" style={{backgroundImage: `url(${item.one.src})`}}>
                             <img src={`../foodImages/${item.two.src}`} className="img-fluid rounded-top"/>
                         </div>
@@ -63,7 +148,7 @@ function Food() {
                             {item.two.name}
                         </div>
                     </div>
-                    <div className="col-12 col-md-4 mb-2">
+                    <div className="col-12 col-md-4 mb-2" onClick={() => {selectFood(item.three); toggle();}}>
                         <div className=" food-image" style={{backgroundImage: `url(${item.one.src})`}}>
                             <img src={`../foodImages/${item.three.src}`} className="img-fluid rounded-top"/>
                         </div>
@@ -73,6 +158,7 @@ function Food() {
                     </div>
                 </div>
             
+            <FeaturedFoodModal isOpen={modal}  toggle={toggle} selectedFeaturedFood={selectedFeaturedFood} />
            
             
             
@@ -113,7 +199,7 @@ function Food() {
                 
             </div>
                 <div className="col-6 mt-3 mx-auto">
-                    <Button className="redGradient" style={{border: 0}}>GO TO MENU</Button>
+                    <Button className="redGradient" href="/menu" style={{border: 0}}>GO TO MENU</Button>
                 </div>
             <hr />
         </>
