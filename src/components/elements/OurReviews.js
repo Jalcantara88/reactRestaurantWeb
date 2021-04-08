@@ -5,7 +5,9 @@ import {
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
-    CarouselCaption
+    CarouselCaption,
+    Modal,
+    ModalBody
   } from 'reactstrap';
 
 import Rating from 'react-rating';
@@ -14,6 +16,42 @@ import emptyStar from '../../assets/starEmpty.png';
 
 import { REVIEWS } from '../../shared/reviews';
 
+function ReviewsModal(props) {
+  const allReviews = REVIEWS.map((item) => {
+    return(
+      <div className="col-10 rounded bg-dark text-white py-2 mb-3">
+        <div className="row">
+          <div className="col-4">
+            <img className="img-fluid" style={{borderRadius: "100%"}} src={`../profileImages/${item.image}`} />
+          </div>
+          <div className="col-8">
+            <div className="text-white">
+              <p className="m-0 text-left">"{item.quote}"</p>
+              <h5 className="m-0 mb-2 text-right">- {item.name}</h5>
+            </div>
+            <Rating 
+              emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+              fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+              initialRating={item.rating}
+              readonly={true}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  });
+  return(
+    <>
+    <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" scrollable={true} centered>
+      <ModalBody style={{height: "400px"}} className="mb-3">
+        <div className="row justify-content-center">
+          {allReviews}
+        </div>
+      </ModalBody>
+    </Modal>
+    </>
+  );
+}
   
 
 
@@ -21,15 +59,20 @@ function Reviews() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
 
+    const [modal, setModal] = useState(false);
+    
+
+    const toggle = () => setModal(!modal);
+
     const next = () => {
         if (animating) return;
-        const nextIndex = activeIndex === REVIEWS.length - 1 ? 0 : activeIndex + 1;
+        const nextIndex = activeIndex === 3 - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
     }
 
     const previous = () => {
         if (animating) return;
-        const nextIndex = activeIndex === 0 ? REVIEWS.length - 1 : activeIndex - 1;
+        const nextIndex = activeIndex === 0 ? 3 - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     }
 
@@ -40,7 +83,7 @@ function Reviews() {
 
 
 
-    const slides = REVIEWS.map((item) => {
+    const slides = REVIEWS.slice(0,3).map((item) => {
         return (
           <CarouselItem
             onExiting={() => setAnimating(true)}
@@ -74,6 +117,8 @@ function Reviews() {
         );
       });
 
+      
+
     return(
         <>
             <div className="row">
@@ -82,7 +127,7 @@ function Reviews() {
                 <div className="col-4"><div className="divider-line"></div></div>
             </div>
 
-            <div className="row justify-content-center">
+            <div className="row justify-content-center"  onClick={() => {toggle();}}>
                 
                     <Carousel
                         activeIndex={activeIndex}
@@ -92,7 +137,7 @@ function Reviews() {
                         
                         >
                         {slides}
-                        <CarouselIndicators items={REVIEWS} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                        <CarouselIndicators items={REVIEWS.slice(0,3)} activeIndex={activeIndex} onClickHandler={goToIndex} />
                         
                         
                     </Carousel>
@@ -104,6 +149,8 @@ function Reviews() {
                     <Button style={{backgroundColor: "orange", border: 0}}>Leave a Review</Button>
                 </div>
             </div>
+
+          <ReviewsModal isOpen={modal}  toggle={toggle}/>
         </>
     );
 }
