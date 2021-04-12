@@ -9,7 +9,7 @@ export const HAPPYHOUR = {
         },
         {
             name: 'Wings',
-            price: '9.99',
+            price: 9.99,
             image: 'lunch/wings.jpg'
         },
         {
