@@ -7,7 +7,14 @@ import {
     CarouselIndicators,
     CarouselCaption,
     Modal,
-    ModalBody
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    FormText
   } from 'reactstrap';
 
 import Rating from 'react-rating';
@@ -15,6 +22,51 @@ import fullStar from '../../assets/starFull.png';
 import emptyStar from '../../assets/starEmpty.png';
 
 import { REVIEWS } from '../../shared/reviews';
+
+function LeaveReviewModal(props) {
+  return(
+    <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" centered style={{border: 0}}>
+      <ModalHeader toggle={props.toggle} className="py-1 text-white" style={{backgroundColor: "orange"}}>LEAVE A REVIEW</ModalHeader>
+      <ModalBody>
+      <Form>
+      <FormGroup>
+        <Label for="name">Name</Label>
+        <Input type="name" name="name" id="name" placeholder="full name here" />
+      </FormGroup>
+      <FormGroup>
+        <Label for="ratingt">Rating</Label>
+        <Input type="select" name="rating" id="rating">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </Input>
+      </FormGroup>
+      <FormGroup>
+        <Label for="quote">Quote</Label>
+        <Input type="textarea" name="quote" id="quote" />
+      </FormGroup>
+      <FormGroup>
+        <Label for="exampleFile">Picture</Label>
+        <Input type="file" name="file" id="exampleFile" />
+        <FormText color="muted">
+          PLease upload a picture to be used with your review.
+        </FormText>
+      </FormGroup>
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" />{' '}
+          I agree to let my review be used on React Resturant.com
+        </Label>
+      </FormGroup>
+      <Button className="bg-primary" onClick={() => {alert('thankyou for your review'); props.toggle(); }}>Submit</Button>
+    </Form>
+      </ModalBody>
+      
+    </Modal>
+  )
+}
 
 function ReviewsModal(props) {
   const allReviews = REVIEWS.map((item) => {
@@ -43,11 +95,20 @@ function ReviewsModal(props) {
   return(
     <>
     <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" scrollable={true} centered>
-      <ModalBody style={{height: "400px"}} className="mb-3">
+      <ModalHeader className="justify-content-center text-white bg-danger py-1" toggle={props.toggle}>ALL REVIEWS</ModalHeader>
+      <ModalBody style={{height: "300px"}} className="mb-3">
         <div className="row justify-content-center">
           {allReviews}
         </div>
       </ModalBody>
+      <a onClick={() => {
+        props.formToggle();
+      }}>
+        <ModalFooter className="justify-content-center p-1 text-white" style={{border: 0, backgroundColor: "orange"}}>
+          Leave a Review
+        </ModalFooter>
+      </a>
+      
     </Modal>
     </>
   );
@@ -60,8 +121,9 @@ function Reviews() {
     const [animating, setAnimating] = useState(false);
 
     const [modal, setModal] = useState(false);
+    const [formModal, setFormModal] = useState(false);
     
-
+    const formToggle = () => setFormModal(!formModal);
     const toggle = () => setModal(!modal);
 
     const next = () => {
@@ -146,11 +208,12 @@ function Reviews() {
             </div>
             <div className="row justify-content-center pt-2 pb-4">
                 <div className="col">
-                    <Button style={{backgroundColor: "orange", border: 0}}>Leave a Review</Button>
+                    <Button style={{backgroundColor: "orange", border: 0}} onClick={() => {formToggle();}}>Leave a Review</Button>
                 </div>
             </div>
 
-          <ReviewsModal isOpen={modal}  toggle={toggle}/>
+          <ReviewsModal isOpen={modal}  toggle={toggle} formToggle={formToggle}/>
+          <LeaveReviewModal isOpen={formModal} toggle={formToggle}/>
         </>
     );
 }

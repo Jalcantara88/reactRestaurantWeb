@@ -33,11 +33,11 @@ function FeaturedFoodModal(props) {
     return (
         <div>
             <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" centered>
-                
+                <ModalHeader className="justify-content-center py-1 text-white bg-danger" toggle={props.toggle}><h3>{props.selectedFeaturedFood.name}</h3></ModalHeader>
                 <ModalBody>
                     <div className="row pr-2">
                         <div className="col-8">
-                            <div className="row-fluid pt-2">
+                            <div className="row-fluid">
                                 <img src={`../foodImages/${props.selectedFeaturedFood.src}`} className="img-fluid rounded"/>
 
                             </div>
@@ -58,8 +58,8 @@ function FeaturedFoodModal(props) {
 
                         </div>
                         <div className="col">
-                            <div className="row"><h3 className="">{props.selectedFeaturedFood.name}</h3></div>
-                            <div className="row border-top border-bottom border-danger"><p className="small my-1 mb-2 px-1 four-line-limit" style={{lineHeight: "1"}}>{props.selectedFeaturedFood.detail}</p></div>
+                            
+                            <div className="row border-top border-bottom border-danger"><p className="small my-1 mb-2 px-1 four-line-limit" style={{lineHeight: "1.15"}}>{props.selectedFeaturedFood.detail}</p></div>
                             <div className="row pt-1">
                                 <div className="col-2 p-0"><p className="small" style={{lineHeight: "90%"}}>overall rating</p></div>
                                 <div className="col">
@@ -73,16 +73,18 @@ function FeaturedFoodModal(props) {
                                 </div>
                             </div>
                             <div className="row justify-content-center">{topReviews}</div>
-                            <div className="row justify-content-center">
-                                <Button className="bg-danger px-4 py-0" href="/menu" style={{border: 0, borderRadius: 20}}>go to menu</Button>
-
-                            </div>
+                            
                         
                         </div>
                     </div>
                     
                 </ModalBody>
-               
+                <a href="/menu">
+                    <ModalFooter className="justify-content-center p-0 pb-1 text-white" style={{backgroundColor: 'orange'}} >
+                        go to menu
+                    </ModalFooter>
+                </a>
+                
             </Modal>
         </div>
     )
