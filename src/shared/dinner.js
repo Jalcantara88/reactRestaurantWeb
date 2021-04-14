@@ -6,49 +6,373 @@ export const DINNER = {
     appetizers: [
         {
             name: 'Cucumber',
-            price: '9.99',
-            image: 'dinner/appetizer/cucumberCaviar.jpg'
+            price: 8.99,
+            image: 'dinner/appetizer/cucumberCaviar.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: false,
         },
         {
             name: 'Prociutto',
-            price: '9.99',
-            image: 'dinner/appetizer/prociutto.jpg'
+            price: 6.99,
+            image: 'dinner/appetizer/prociutto.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: false,
         },
         {
             name: 'Hummus',
-            price: '9.99',
-            image: 'dinner/appetizer/hummus.jpg'
+            price: 5.99,
+            image: 'dinner/appetizer/hummus.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: false,
         },
     ],
     entrees: [
         {
             name: 'Carne Asada',
-            price: '9.99',
-            image: 'dinner/carneAsada.jpg'
+            price: 12.99,
+            image: 'dinner/carneAsada.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Salmon',
-            price: '9.99',
-            image: 'dinner/salmon.jpg'
+            price: 13.99,
+            image: 'dinner/salmon.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Steak',
-            price: '9.99',
-            image: 'dinner/steak.jpg'
+            price: 13.99,
+            image: 'dinner/steak.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },{
             name: 'Ham Hock',
-            price: '9.99',
-            image: 'dinner/hamHock.jpg'
+            price: 11.99,
+            image: 'dinner/hamHock.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Snapper',
-            price: '9.99',
-            image: 'dinner/snapper.jpg'
+            price: 12.99,
+            image: 'dinner/snapper.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Teriyaki',
-            price: '9.99',
-            image: 'dinner/teriyaki.jpg'
+            price: 11.99,
+            image: 'dinner/teriyaki.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
     ]
 }

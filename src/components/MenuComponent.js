@@ -11,6 +11,8 @@ import { DRINKS } from '../shared/drinks';
 import { HAPPYHOUR } from '../shared/happyHour';
 import { DESSERT } from '../shared/dessert';
 import Total from '../components/elements/MenuTotal';
+import { SIDES } from '../shared/sides';
+import { ADDONS } from '../shared/addons';
 
 import { 
     Modal, 
@@ -29,11 +31,7 @@ import emptyStar from '../assets/starEmpty.png';
 
 
 function FoodItemModal(props) {
-
-    
-
     const [quantity, setQuantity] = useState(1);
-
     const [addOns, setAddOns] = useState(0);
 
     const plusAddOn = () => {
@@ -67,7 +65,81 @@ function FoodItemModal(props) {
         }
     }
 
-    const totalPrice = props.foodItem.price*quantity;
+    
+    console.log(props);
+    console.log(props.foodItem);
+    console.log(props.foodItem.ingredients);
+    
+
+    const ingredients = props.foodItem.ingredients.map(item => {
+        if(item.default) {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="checkbox" name="check1" defaultChecked />
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+        }
+        else {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="checkbox" name="check1"/>
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+        }
+        
+    })
+
+    const sides = SIDES.map(item => {
+        if(item.default) {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="radio" name="radio1" defaultChecked/>
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+            
+        }
+        else {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="radio" name="radio1"/>
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+        }
+        
+    })
+
+    const addons = ADDONS.map(item => {
+        return(
+            <FormGroup check inline>
+                <Label check>
+                    <Input id={item} type="checkbox" name="check2" onClick={() => {
+                        if(document.getElementById(item).checked) {
+                            plusAddOn();
+                        }
+                        else{
+                            
+                            minusAddOn();
+                        }
+                    }}/>
+                    {item}
+                </Label>
+            </FormGroup>
+        )
+    })
+
+    const totalPrice = (props.foodItem.price * quantity) + (addOns * .5);
 
     return(
         <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
@@ -85,142 +157,21 @@ function FoodItemModal(props) {
                                 
                                 <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
                                     <legend style={{fontSize: "1em", margin: 0}}><strong>Ingredients</strong></legend>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing3
-                                        </Label>
-                                    </FormGroup>
-
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing3
-                                        </Label>
-                                    </FormGroup>
-
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline >
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
+                                    {ingredients}
                                 
                                 </FormGroup>
 
 
                                 <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
-                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Side</strong></legend>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing3
-                                        </Label>
-                                    </FormGroup>
-
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
+                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Sides</strong></legend>
+                                    {sides}
                                     
                                 </FormGroup>
 
 
                                 <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
                                     <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing3
-                                        </Label>
-                                    </FormGroup>
-
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing3
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing1
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check inline>
-                                        <Label check>
-                                            <Input type="checkbox" name="radio1" />{' '}
-                                            thing2
-                                        </Label>
-                                    </FormGroup>
+                                    {addons}
 
                                 </FormGroup>
                             
@@ -385,7 +336,7 @@ class Menu extends Component {
         this.state = {
             order: [],
             total: 0.00,
-            selectedFoodItem: {},
+            selectedFoodItem: HAPPYHOUR.items[0],
             isOpen: false
         };
 

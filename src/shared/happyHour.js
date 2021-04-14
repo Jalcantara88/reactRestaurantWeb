@@ -4,33 +4,249 @@ export const HAPPYHOUR = {
     items: [
         {
             name: 'Burger',
-            price: '9.99',
-            image: 'lunch/burger.jpg'
+            price: 8.99,
+            image: 'lunch/burger.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Wings',
-            price: 9.99,
-            image: 'lunch/wings.jpg'
+            price: 6.99,
+            image: 'lunch/wings.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: false,
         },
         {
             name: 'Beer',
-            price: '9.99',
-            image: 'drinks/alcoholic/beer.jpg'
+            price: 6.99,
+            image: 'drinks/alcoholic/beer.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: false,
         },
         {
             name: 'Sangria',
-            price: '9.99',
-            image: 'drinks/alcoholic/sangria.jpg'
+            price: 7.99,
+            image: 'drinks/alcoholic/sangria.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Steak',
-            price: '9.99',
-            image: 'dinner/steak.jpg'
+            price: 9.99,
+            image: 'dinner/steak.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
         {
             name: 'Teriyaki',
-            price: '9.99',
-            image: 'dinner/teriyaki.jpg'
+            price: 8.99,
+            image: 'dinner/teriyaki.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
+            sides: true,
         },
     ],
 }

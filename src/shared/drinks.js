@@ -6,49 +6,364 @@ export const DRINKS = {
     appetizers: [
         {
             name: 'Grapefruit',
-            price: '9.99',
-            image: 'drinks/grapefruitDrink.jpg'
+            price: 7.99,
+            image: 'drinks/grapefruitDrink.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Watermelon',
-            price: '9.99',
-            image: 'drinks/watermelonFizz.jpg'
+            price: 6.99,
+            image: 'drinks/watermelonFizz.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Strawberry',
-            price: '9.99',
-            image: 'drinks/strawberryDrink.jpg'
+            price: 6.99,
+            image: 'drinks/strawberryDrink.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
     ],
     entrees: [
         {
             name: 'Beer',
-            price: '9.99',
-            image: 'drinks/alcoholic/beer.jpg'
+            price: 7.99,
+            image: 'drinks/alcoholic/beer.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Wine',
-            price: '9.99',
-            image: 'drinks/alcoholic/redWine.jpg'
+            price: 8.99,
+            image: 'drinks/alcoholic/redWine.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Sangria',
-            price: '9.99',
-            image: 'drinks/alcoholic/sangria.jpg'
+            price: 9.99,
+            image: 'drinks/alcoholic/sangria.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },{
             name: 'Martini',
-            price: '9.99',
-            image: 'drinks/alcoholic/blueCocktail.jpg'
+            price: 11.99,
+            image: 'drinks/alcoholic/blueCocktail.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Rosemary',
-            price: '9.99',
-            image: 'drinks/alcoholic/rosemaryGrapefruitCocktail.jpeg'
+            price: 8.99,
+            image: 'drinks/alcoholic/rosemaryGrapefruitCocktail.jpeg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
         {
             name: 'Hot Mama',
-            price: '9.99',
-            image: 'drinks/alcoholic/sweetHotMama.jpg'
+            price: 7.99,
+            image: 'drinks/alcoholic/sweetHotMama.jpg',
+            ingredients: [
+                {
+                    name: "lettuce",
+                    default: true
+                },
+                {
+                    name: "tomato",
+                    default: true
+                },
+                {
+                    name: "onion",
+                    default: true
+                },
+                {
+                    name: "pickle",
+                    default: false
+                },
+                {
+                    name: "mayo",
+                    default: true
+                },
+                {
+                    name: "mustard",
+                    default: false
+                },
+                {
+                    name: "ketchup",
+                    default: false
+                },
+                {
+                    name: "cheese",
+                    default: false
+                },
+                
+            ],
         },
     ]
 }
