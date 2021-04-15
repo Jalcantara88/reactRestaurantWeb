@@ -8,6 +8,7 @@ export const DINNER = {
             name: 'Cucumber',
             price: 8.99,
             image: 'dinner/appetizer/cucumberCaviar.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -49,6 +50,7 @@ export const DINNER = {
             name: 'Prociutto',
             price: 6.99,
             image: 'dinner/appetizer/prociutto.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -90,6 +92,7 @@ export const DINNER = {
             name: 'Hummus',
             price: 5.99,
             image: 'dinner/appetizer/hummus.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -133,6 +136,7 @@ export const DINNER = {
             name: 'Carne Asada',
             price: 12.99,
             image: 'dinner/carneAsada.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -174,6 +178,7 @@ export const DINNER = {
             name: 'Salmon',
             price: 13.99,
             image: 'dinner/salmon.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -215,6 +220,7 @@ export const DINNER = {
             name: 'Steak',
             price: 13.99,
             image: 'dinner/steak.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -255,6 +261,7 @@ export const DINNER = {
             name: 'Ham Hock',
             price: 11.99,
             image: 'dinner/hamHock.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -296,6 +303,7 @@ export const DINNER = {
             name: 'Snapper',
             price: 12.99,
             image: 'dinner/snapper.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -337,6 +345,7 @@ export const DINNER = {
             name: 'Teriyaki',
             price: 11.99,
             image: 'dinner/teriyaki.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",

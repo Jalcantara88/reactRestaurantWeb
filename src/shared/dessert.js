@@ -6,6 +6,7 @@ export const DESSERT = {
             name: 'Cheesecake',
             price: 7.99,
             image: 'dessert/cheesecake.jpeg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",
@@ -46,6 +47,7 @@ export const DESSERT = {
             name: 'Ice Cream',
             price: 6.99,
             image: 'dessert/icecreamSandwich.jpg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",
@@ -86,6 +88,7 @@ export const DESSERT = {
             name: 'Fruit Jello',
             price: 5.99,
             image: 'dessert/jello.jpg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",
@@ -126,6 +129,7 @@ export const DESSERT = {
             name: 'Lava Cake',
             price: 8.99,
             image: 'dessert/lavaCake.jpg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",
@@ -166,6 +170,7 @@ export const DESSERT = {
             name: 'Macarons',
             price: 7.99,
             image: 'dessert/macarons.jpeg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",
@@ -206,6 +211,7 @@ export const DESSERT = {
             name: 'Milk Shake',
             price: 5.99,
             image: 'dessert/milkshake.jpg',
+            type: "dessert",
             ingredients: [
                 {
                     name: "lettuce",

@@ -6,6 +6,7 @@ export const HAPPYHOUR = {
             name: 'Burger',
             price: 8.99,
             image: 'lunch/burger.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -47,6 +48,7 @@ export const HAPPYHOUR = {
             name: 'Wings',
             price: 6.99,
             image: 'lunch/wings.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -88,6 +90,7 @@ export const HAPPYHOUR = {
             name: 'Beer',
             price: 6.99,
             image: 'drinks/alcoholic/beer.jpg',
+            type: "drink",
             ingredients: [
                 {
                     name: "lettuce",
@@ -129,6 +132,7 @@ export const HAPPYHOUR = {
             name: 'Sangria',
             price: 7.99,
             image: 'drinks/alcoholic/sangria.jpg',
+            type: "drink",
             ingredients: [
                 {
                     name: "lettuce",
@@ -170,6 +174,7 @@ export const HAPPYHOUR = {
             name: 'Steak',
             price: 9.99,
             image: 'dinner/steak.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -211,6 +216,7 @@ export const HAPPYHOUR = {
             name: 'Teriyaki',
             price: 8.99,
             image: 'dinner/teriyaki.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",

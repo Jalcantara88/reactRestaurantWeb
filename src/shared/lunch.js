@@ -3,11 +3,13 @@ export const LUNCH = {
     time: '9AM to 12PM',
     option1: 'appetizers',
     option2: 'entrees',
+    
     appetizers: [
         {
             name: 'Pizza Bites',
             price: 8.99,
             image: 'lunch/appetizer/pizzaBites.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -50,6 +52,7 @@ export const LUNCH = {
             name: 'Salmon Bites',
             price: 6.99,
             image: 'lunch/appetizer/salmonBites.jpeg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -91,6 +94,7 @@ export const LUNCH = {
             name: 'Cheese Toast',
             price: 7.99,
             image: 'lunch/appetizer/toastCheeseJam.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -134,6 +138,7 @@ export const LUNCH = {
             name: '1/2LB Burger',
             price: 11.99,
             image: 'lunch/burger.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -175,6 +180,7 @@ export const LUNCH = {
             name: 'Hot Wings',
             price: 8.99,
             image: 'lunch/wings.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -216,6 +222,7 @@ export const LUNCH = {
             name: 'Shish Kebab',
             price: 12.99,
             image: 'lunch/kebab.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -256,6 +263,7 @@ export const LUNCH = {
             name: 'Club Sammie',
             price: 10.99,
             image: 'lunch/clubSandwich.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -297,6 +305,7 @@ export const LUNCH = {
             name: 'Sampler Bites',
             price: 15.99,
             image: 'lunch/sandwichSampler.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",
@@ -338,6 +347,7 @@ export const LUNCH = {
             name: 'Loaded Skins',
             price: 9.99,
             image: 'lunch/loadedSweetPotato.jpg',
+            type: "food",
             ingredients: [
                 {
                     name: "lettuce",

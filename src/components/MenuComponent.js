@@ -13,6 +13,9 @@ import { DESSERT } from '../shared/dessert';
 import Total from '../components/elements/MenuTotal';
 import { SIDES } from '../shared/sides';
 import { ADDONS } from '../shared/addons';
+import { OPTIONS } from '../shared/options';
+import { DESSERTADDONS } from '../shared/dessertAddons'; 
+
 
 import { 
     Modal, 
@@ -66,9 +69,7 @@ function FoodItemModal(props) {
     }
 
     
-    console.log(props);
-    console.log(props.foodItem);
-    console.log(props.foodItem.ingredients);
+    
     
 
     const ingredients = props.foodItem.ingredients.map(item => {
@@ -120,6 +121,31 @@ function FoodItemModal(props) {
         
     })
 
+    const options = OPTIONS.map(item => {
+        if(item.default) {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="radio" name="radio1" defaultChecked/>
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+            
+        }
+        else {
+            return(
+                <FormGroup check inline>
+                    <Label check>
+                        <Input id={item.name} type="radio" name="radio1"/>
+                        {item.name}
+                    </Label>
+                </FormGroup>
+            )
+        }
+        
+    })
+
     const addons = ADDONS.map(item => {
         return(
             <FormGroup check inline>
@@ -139,10 +165,89 @@ function FoodItemModal(props) {
         )
     })
 
-    const totalPrice = (props.foodItem.price * quantity) + (addOns * .5);
+    const dessertAddons = DESSERTADDONS.map(item => {
+        return(
+            <FormGroup check inline>
+                <Label check>
+                    <Input id={item} type="checkbox" name="check2" onClick={() => {
+                        if(document.getElementById(item).checked) {
+                            plusAddOn();
+                        }
+                        else{
+                            
+                            minusAddOn();
+                        }
+                    }}/>
+                    {item}
+                </Label>
+            </FormGroup>
+        )
+    })
 
-    return(
-        <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
+    const totalPrice = (props.foodItem.price * quantity) + (addOns * .5);
+    
+    if(props.alt === "drink") {
+        return(
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onSubmit={props.addToOrder} onClosed={() => {reset();}}>
+            <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
+            <ModalBody className="m-0 p-0">
+                <Form>
+                <div className="row no-gutters p-0">
+                    <div className="col-6">
+                        <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
+                        
+                    </div>
+                    <div className="col-6">
+                        
+                            <div className="row pt-0 pl-4">
+                                
+                                
+                            
+                            </div>
+
+                            
+                        
+                        </div>
+                    </div>
+                    <div>
+                        
+                            
+                        
+                </div>
+                    <div className="row pl-3 no-gutters p-0">
+                        <div className="col-4">
+                                
+                            <Rating 
+                                emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                                fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                                initialRating={4}
+                                readonly={true}
+                            />
+                        </div>
+                        <div className="col-3 pl-3">
+                            <div className="row">
+                                <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
+                                <div className="col-4" className="border px-3">{quantity}</div>
+                                <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
+                            </div>
+
+                        </div>
+                        <div className="col-4">
+                            <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
+
+                        </div>
+                    </div>
+                </Form>
+                
+            </ModalBody>
+            
+        </Modal>
+        )
+    }
+
+    if(props.alt === "dessert") {
+        return(
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
             <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
             <ModalBody className="m-0 p-0">
                 <Form>
@@ -156,22 +261,15 @@ function FoodItemModal(props) {
                             <div className="row pt-0 pl-4">
                                 
                                 <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
-                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Ingredients</strong></legend>
-                                    {ingredients}
+                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Options</strong></legend>
+                                    {options}
                                 
                                 </FormGroup>
-
-
-                                <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
-                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Sides</strong></legend>
-                                    {sides}
-                                    
-                                </FormGroup>
-
+                                
 
                                 <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
                                     <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
-                                    {addons}
+                                    {dessertAddons}
 
                                 </FormGroup>
                             
@@ -181,37 +279,113 @@ function FoodItemModal(props) {
                         
                         </div>
                     </div>
-                    <div className="row pl-3 no-gutters">
-                        <div className="col-5">
+                    <div>
                         
-                            <Rating 
-                                emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
-                                fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
-                                initialRating={4}
-                                readonly={true}
-                            />
-                        </div>
-                        <div className="col-3">
-                            <div className="row">
-                                <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
-                                <div className="col-4" className="border px-3">{quantity}</div>
-                                <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
-                            </div>
-
-                        </div>
-                        <div className="col-4">
-                            <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
-
-                        </div>
                             
                         
                 </div>
                 </Form>
                 
             </ModalBody>
-            <ModalFooter></ModalFooter>
+            <ModalFooter className="row pl-3 no-gutters p-0">
+                <div className="col-4">
+                        
+                    <Rating 
+                        emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                        fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                        initialRating={4}
+                        readonly={true}
+                    />
+                </div>
+                <div className="col-3 pl-3">
+                    <div className="row">
+                        <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
+                        <div className="col-4" className="border px-3">{quantity}</div>
+                        <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
+                    </div>
+
+                </div>
+                <div className="col-4">
+                    <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
+
+                </div>
+            </ModalFooter>
         </Modal>
-    );
+        );
+    }
+
+    else {
+        return(
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
+                <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
+                <ModalBody className="m-0 p-0">
+                    <Form>
+                    <div className="row no-gutters p-0">
+                        <div className="col-6">
+                            <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
+                            
+                        </div>
+                        <div className="col-6">
+                            
+                                <div className="row pt-0 pl-4">
+                                    
+                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                        <legend style={{fontSize: "1em", margin: 0}}><strong>Ingredients</strong></legend>
+                                        {ingredients}
+                                    
+                                    </FormGroup>
+    
+    
+                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                        <legend style={{fontSize: "1em", margin: 0}}><strong>Sides</strong></legend>
+                                        {sides}
+                                        
+                                    </FormGroup>
+    
+    
+                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                        <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
+                                        {addons}
+    
+                                    </FormGroup>
+                                
+                                </div>
+    
+                                
+                            
+                            </div>
+                        </div>
+                        
+                    </Form>
+                    
+                </ModalBody>
+                <ModalFooter className="row pl-3 no-gutters p-0">
+                    <div className="col-4">
+                            
+                        <Rating 
+                            emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                            fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                            initialRating={4}
+                            readonly={true}
+                        />
+                    </div>
+                    <div className="col-3 pl-3">
+                        <div className="row">
+                            <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
+                            <div className="col-4" className="border px-3">{quantity}</div>
+                            <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
+                        </div>
+
+                    </div>
+                    <div className="col-4">
+                        <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
+
+                    </div>
+            </ModalFooter>
+            </Modal>
+        );
+    }
+    
 }
 
 function RenderFoodItem(props){
@@ -219,7 +393,7 @@ function RenderFoodItem(props){
     
 
     return(
-        <div classname="col-10 col-md-6 col-lg-4 p-0" onClick={() => {props.selectFood(props.item); props.toggleModal()}}>
+        <div classname="col-10 col-md-6 col-lg-4 p-0" onClick={() => {props.selectFood(props.item,props.alt); props.toggleModal()}}>
             <div className="row  foodItemBG foodItem py-0 px-2 mx-2 align-items-center mb-2">
                 <div className="col-2 p-0 m-0">
                     <img src={`../foodImages/${props.item.image}`} className="foodItemImage" />
@@ -239,13 +413,13 @@ function RenderFood(props){
 
     const appetizers = props.food.appetizers.map(item => {
         return(
-            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal}/>
+            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal} alt={item.type}/>
         );
     })
 
     const entrees = props.food.entrees.map(item => {
         return(
-            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal}/>
+            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal} alt={item.type}/>
         );
     })
 
@@ -296,7 +470,7 @@ function RenderFoodAlt(props){
 
     const items = props.food.items.map(item => {
         return(
-            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal} subMenu={props.food.name}/>
+            <RenderFoodItem item={item} selectFood={props.selectFood} toggleModal={props.toggleModal} subMenu={props.food.name} alt={item.type}/>
         );
     })
 
@@ -337,9 +511,9 @@ class Menu extends Component {
             order: [],
             total: 0.00,
             selectedFoodItem: HAPPYHOUR.items[0],
-            isOpen: false
+            isOpen: false,
+            altModal: ""
         };
-
         
     }
 
@@ -347,13 +521,19 @@ class Menu extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
 
-    handleSelectFood = (foodItem) => {
+    handleSelectFood = (foodItem, altModalVal) => {
         this.setState({selectedFoodItem: foodItem});
+        this.setState({altModal: altModalVal});
+    }
+
+    addToOrder(event) {
+        alert("added to order");
+        console.log(event);
+        this.state.order.push(event);
     }
 
     render() {
-
-        
+        console.log(this.state.order);
         return(
             <>
                 <Info />
@@ -364,7 +544,7 @@ class Menu extends Component {
                 <RenderFoodAlt food={DESSERT} selectFood={this.handleSelectFood} toggleModal={this.toggleModal}/>
                 <OrderView />
                 <Total order={this.state} />
-                <FoodItemModal toggle={this.toggleModal} isOpen={this.state.isOpen} foodItem={this.state.selectedFoodItem}/>
+                <FoodItemModal toggle={this.toggleModal} isOpen={this.state.isOpen} foodItem={this.state.selectedFoodItem} alt={this.state.altModal} addToOrder={this.state.addToOrder}/>
             </>
         );
     }
