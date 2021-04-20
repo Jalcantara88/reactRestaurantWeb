@@ -1,6 +1,6 @@
 export const ADDONS = [
     "bacon",
-    "cheese",
+    "extra cheese",
     "spicy",
     "ranch",
     "peppers",

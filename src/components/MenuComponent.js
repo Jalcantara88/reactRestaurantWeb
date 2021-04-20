@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component, useState } from 'react';
 import Dessert from './elements/MenuDessert';
 import HappyHour from './elements/MenuHappyHour';
@@ -34,27 +35,46 @@ import emptyStar from '../assets/starEmpty.png';
 
 
 function FoodItemModal(props) {
-    const [quantity, setQuantity] = useState(1);
-    const [addOns, setAddOns] = useState(0);
+    //const [quantity, setQuantity] = useState(1);
+    //const [addOns, setAddOns] = useState(0);
+
+    var quantity = 1;
+    var addOns = 0
+    
+    const orderItem = {
+        name: props.foodItem.name,
+        ingredients: [],
+        sides: "",
+        addOns: [],
+        desertAddOns: [],
+        options: [],
+        itemPrice: 0
+    }
+
 
     const plusAddOn = () => {
-        const newQuantity = addOns + 1;
-        setAddOns(newQuantity);
+        addOns++;
+        console.log(addOns);
+        //const newQuantity = addOns + 1;
+        //setAddOns(newQuantity);
     }
 
     const minusAddOn = () => {
-        const newQuantity = addOns - 1;
-        setAddOns(newQuantity);
+        addOns--;
+        console.log(addOns)
+        //const newQuantity = addOns - 1;
+        //setAddOns(newQuantity);
     }
 
     const reset = () => {
-        setQuantity(1);
-        setAddOns(0);
+        quantity = 1;
+        addOns = 0;
     }
 
     const plusOne = () => {
-        const newQuantity = quantity + 1;
-        setQuantity(newQuantity);
+        quantity++;
+        //const newQuantity = quantity + 1;
+        //setQuantity(newQuantity);
 
     }
 
@@ -63,101 +83,133 @@ function FoodItemModal(props) {
             return;
         }
         else{
-            const newQuantity = quantity - 1;
-            setQuantity(newQuantity);
+            quantity--;
+            //const newQuantity = quantity - 1;
+            //setQuantity(newQuantity);
         }
     }
 
-    
-    
-    
+    const newTotal = () => {
+        totalPrice = (props.foodItem.price * quantity) + (addOns * .5); 
+        document.getElementById("totalItemPrice").innerHTML = totalPrice;  
+        console.log(totalPrice);
+    }
+
 
     const ingredients = props.foodItem.ingredients.map(item => {
         if(item.default) {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="checkbox" name="check1" defaultChecked />
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
+            orderItem.ingredients.push(item.name);
         }
-        else {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="checkbox" name="check1"/>
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
-        }
+
+        return(
+            
+            
+            <FormGroup check inline>
+                <Label check>
+                    <Input 
+                        id={item.name} 
+                        type="checkbox"
+                        name={item.name} 
+                        defaultValue={item.default} 
+                        defaultChecked={item.default}
+                        onClick={
+                            () => {
+                                if(document.getElementById(item.name).checked) {
+                                    orderItem.ingredients.push(item.name);
+                                    console.log(orderItem);
+                                }
+                                else{
+                                    orderItem.ingredients.splice(orderItem.ingredients.indexOf(item.name), 1);
+                                    console.log(orderItem);
+                                }
+
+                            }
+                        }
+                    />
+                    {item.name}
+                </Label>
+            </FormGroup>
+            
+        )
         
     })
 
     const sides = SIDES.map(item => {
         if(item.default) {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="radio" name="radio1" defaultChecked/>
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
-            
+            orderItem.sides = item.name;
         }
-        else {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="radio" name="radio1"/>
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
-        }
-        
+
+        return(
+            <FormGroup check inline>
+                <Label check>
+                    <Input 
+                        id={item.name} 
+                        type="radio" 
+                        name="radio" 
+                        defaultValue={item.default} 
+                        defaultChecked={item.default}
+                        onClick={
+                            () => {
+                                orderItem.sides = item.name;
+                                console.log(orderItem);
+                            }
+                        }
+                    />
+                    {item.name}
+                </Label>
+            </FormGroup>
+        )
     })
 
     const options = OPTIONS.map(item => {
         if(item.default) {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="radio" name="radio1" defaultChecked/>
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
-            
+            orderItem.options = item.name;
         }
-        else {
-            return(
-                <FormGroup check inline>
-                    <Label check>
-                        <Input id={item.name} type="radio" name="radio1"/>
-                        {item.name}
-                    </Label>
-                </FormGroup>
-            )
-        }
+
+        return(
+            <FormGroup check inline>
+                <Label check>
+                    <Input 
+                        id={item.name} 
+                        type="radio" 
+                        name="radio1" 
+                        defaultValue={item.default} 
+                        defaultChecked={item.default}
+                        onClick={
+                            () => {
+                                orderItem.options = item.name;
+                                console.log(orderItem);
+                            }
+                        }
+                    />
+                    {item.name}
+                </Label>
+            </FormGroup>
+        )
         
     })
+
+    
 
     const addons = ADDONS.map(item => {
         return(
             <FormGroup check inline>
                 <Label check>
-                    <Input id={item} type="checkbox" name="check2" onClick={() => {
-                        if(document.getElementById(item).checked) {
-                            plusAddOn();
-                        }
-                        else{
-                            
-                            minusAddOn();
-                        }
+                    <Input id={item} type="checkbox" name="check2" defaultValue="false"
+                        onClick={() => {
+                            if(document.getElementById(item).checked) {
+                                
+                                orderItem.addOns.push(item);
+                                console.log(orderItem);
+                                plusAddOn();
+                            }
+                            else{
+                                
+                                orderItem.addOns.splice(orderItem.addOns.indexOf(item), 1);
+                                console.log(orderItem);
+                                console.log("gibberish");
+                                minusAddOn();
+                            }
                     }}/>
                     {item}
                 </Label>
@@ -169,13 +221,17 @@ function FoodItemModal(props) {
         return(
             <FormGroup check inline>
                 <Label check>
-                    <Input id={item} type="checkbox" name="check2" onClick={() => {
+                    <Input id={item} type="checkbox" name="check2" defaultValue="false"
+                    onClick={() => {
                         if(document.getElementById(item).checked) {
                             plusAddOn();
+                            orderItem.dessertAddOns.push(item);
+                            console.log(orderItem);
                         }
                         else{
-                            
                             minusAddOn();
+                            orderItem.dessertAddOns.splice(orderItem.dessertAddOns.indexOf(item), 1);
+                            console.log(orderItem);
                         }
                     }}/>
                     {item}
@@ -184,14 +240,71 @@ function FoodItemModal(props) {
         )
     })
 
-    const totalPrice = (props.foodItem.price * quantity) + (addOns * .5);
+    let totalPrice = (props.foodItem.price * quantity) + (addOns * .5);
+    console.log(totalPrice);
+    //console.log(orderItem);
     
     if(props.alt === "drink") {
         return(
-            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onSubmit={props.addToOrder} onClosed={() => {reset();}}>
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}} onChange={newTotal}>
+                <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
+                <ModalBody className="m-0 p-0">
+                    <Form  id="drinkForm" onSubmit={props.addToOrder}>
+                        <div className="row no-gutters p-0">
+                            <div className="col-6">
+                                <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
+                                
+                            </div>
+                            <div className="col-6">
+                                
+                                    <div className="row pt-0 pl-4">
+                                        
+                                        
+                                    
+                                    </div>
+
+                                    
+                                
+                            </div>
+                        </div>
+                
+                        <div className="row pl-3 no-gutters p-0">
+                            <div className="col-4">
+                                    
+                                <Rating 
+                                    emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                                    fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                                    initialRating={4}
+                                    readonly={true}
+                                />
+                            </div>
+                            <div className="col-3 pl-3">
+                                <div className="row">
+                                    <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
+                                    <div className="col-4" className="border px-3">{quantity}</div>
+                                    <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
+                                </div>
+
+                            </div>
+                            <div className="col-4">
+                                <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
+
+                            </div>
+                        </div>
+                    </Form>
+                    
+                </ModalBody>
+            
+            </Modal>
+        )
+    }
+
+    if(props.alt === "dessert") {
+        return(
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}} onChange={newTotal}>
             <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
             <ModalBody className="m-0 p-0">
-                <Form>
+                <Form onSubmit={props.addToOrder}>
                 <div className="row no-gutters p-0">
                     <div className="col-6">
                         <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
@@ -201,7 +314,18 @@ function FoodItemModal(props) {
                         
                             <div className="row pt-0 pl-4">
                                 
+                                <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Options</strong></legend>
+                                    {options}
                                 
+                                </FormGroup>
+                                
+
+                                <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
+                                    {dessertAddons}
+
+                                </FormGroup>
                             
                             </div>
 
@@ -242,84 +366,15 @@ function FoodItemModal(props) {
             </ModalBody>
             
         </Modal>
-        )
-    }
-
-    if(props.alt === "dessert") {
-        return(
-            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
-            <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
-            <ModalBody className="m-0 p-0">
-                <Form>
-                <div className="row no-gutters p-0">
-                    <div className="col-6">
-                        <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
-                        
-                    </div>
-                    <div className="col-6">
-                        
-                            <div className="row pt-0 pl-4">
-                                
-                                <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
-                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Options</strong></legend>
-                                    {options}
-                                
-                                </FormGroup>
-                                
-
-                                <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
-                                    <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
-                                    {dessertAddons}
-
-                                </FormGroup>
-                            
-                            </div>
-
-                            
-                        
-                        </div>
-                    </div>
-                    <div>
-                        
-                            
-                        
-                </div>
-                </Form>
-                
-            </ModalBody>
-            <ModalFooter className="row pl-3 no-gutters p-0">
-                <div className="col-4">
-                        
-                    <Rating 
-                        emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
-                        fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
-                        initialRating={4}
-                        readonly={true}
-                    />
-                </div>
-                <div className="col-3 pl-3">
-                    <div className="row">
-                        <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
-                        <div className="col-4" className="border px-3">{quantity}</div>
-                        <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
-                    </div>
-
-                </div>
-                <div className="col-4">
-                    <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
-
-                </div>
-            </ModalFooter>
-        </Modal>
         );
     }
 
     else {
         return(
-            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}}>
+            <Modal isOpen={props.isOpen} toggle={props.toggle} centered size="lg" onClosed={() => {reset();}} onChange={newTotal}>
                 <ModalHeader toggle={props.toggle} className="py-1 bg-danger text-white">{props.foodItem.name}</ModalHeader>
                 <ModalBody className="m-0 p-0">
-                    <Form>
+                    <Form onSubmit={props.addToOrder}>
                     <div className="row no-gutters p-0">
                         <div className="col-6">
                             <img src={`../foodImages/${props.foodItem.image}`} className="img-fluid" />
@@ -329,21 +384,21 @@ function FoodItemModal(props) {
                             
                                 <div className="row pt-0 pl-4">
                                     
-                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                    <FormGroup tag="fieldset" id="ingredients" style={{fontSize: ".6em"}} className="m-1">
                                         <legend style={{fontSize: "1em", margin: 0}}><strong>Ingredients</strong></legend>
                                         {ingredients}
                                     
                                     </FormGroup>
     
     
-                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                    <FormGroup tag="fieldset" id="sides" style={{fontSize: ".6em"}} className="m-1">
                                         <legend style={{fontSize: "1em", margin: 0}}><strong>Sides</strong></legend>
                                         {sides}
                                         
                                     </FormGroup>
     
     
-                                    <FormGroup tag="fieldset" style={{fontSize: ".6em"}} className="m-1">
+                                    <FormGroup tag="fieldset" id="addons" style={{fontSize: ".6em"}} className="m-1">
                                         <legend style={{fontSize: "1em", margin: 0}}><strong>Add Ons ($0.50 each)</strong></legend>
                                         {addons}
     
@@ -355,33 +410,34 @@ function FoodItemModal(props) {
                             
                             </div>
                         </div>
+                        <div className="row pl-3 no-gutters p-0">
+                            <div className="col-4">
+                                    
+                                <Rating 
+                                    emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
+                                    fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
+                                    initialRating={4}
+                                    readonly={true}
+                                />
+                            </div>
+                            <div className="col-3 pl-3">
+                                <div className="row">
+                                    <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
+                                    <div className="col-4" className="border px-3">{quantity}</div>
+                                    <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
+                                </div>
+
+                            </div>
+                            <div className="col-4">
+                                <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}><span id="totalItemPrice">${totalPrice} </span> | ADD</Button>
+
+                            </div>
+                        </div>
                         
                     </Form>
                     
                 </ModalBody>
-                <ModalFooter className="row pl-3 no-gutters p-0">
-                    <div className="col-4">
-                            
-                        <Rating 
-                            emptySymbol={<img src={emptyStar} className="icon" style={{height: 30, width: 30}} />}
-                            fullSymbol={<img src={fullStar} className="icon" style={{height: 30, width: 30}} />}
-                            initialRating={4}
-                            readonly={true}
-                        />
-                    </div>
-                    <div className="col-3 pl-3">
-                        <div className="row">
-                            <div className="col-2 bg-danger border border-danger text-white text-center"onClick={() => {minusOne()}}>-</div>
-                            <div className="col-4" className="border px-3">{quantity}</div>
-                            <div className="col-2 bg-success border border-success text-white text-center" onClick={() => {plusOne()}}>+</div>
-                        </div>
-
-                    </div>
-                    <div className="col-4">
-                        <Button type="submit" className="bg-danger py-1 m-0" style={{border: 0}}>${totalPrice} | ADD</Button>
-
-                    </div>
-            </ModalFooter>
+                
             </Modal>
         );
     }
@@ -512,7 +568,8 @@ class Menu extends Component {
             total: 0.00,
             selectedFoodItem: HAPPYHOUR.items[0],
             isOpen: false,
-            altModal: ""
+            altModal: "",
+            
         };
         
     }
@@ -527,9 +584,16 @@ class Menu extends Component {
     }
 
     addToOrder(event) {
+        event.preventDefault();
         alert("added to order");
-        console.log(event);
-        this.state.order.push(event);
+        console.log(event.target.elements);
+
+        const array = [...event.target.elements];
+        console.log(array);
+        //console.log(event.target.elements[1]);
+        //console.log(event.target.elements.ingredients);
+        
+        //this.state.order.push(event);
     }
 
     render() {
@@ -544,7 +608,7 @@ class Menu extends Component {
                 <RenderFoodAlt food={DESSERT} selectFood={this.handleSelectFood} toggleModal={this.toggleModal}/>
                 <OrderView />
                 <Total order={this.state} />
-                <FoodItemModal toggle={this.toggleModal} isOpen={this.state.isOpen} foodItem={this.state.selectedFoodItem} alt={this.state.altModal} addToOrder={this.state.addToOrder}/>
+                <FoodItemModal toggle={this.toggleModal} isOpen={this.state.isOpen} foodItem={this.state.selectedFoodItem} alt={this.state.altModal} addToOrder={this.addToOrder}/>
             </>
         );
     }
