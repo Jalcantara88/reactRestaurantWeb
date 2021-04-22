@@ -8,38 +8,7 @@ export const DESSERT = {
             image: 'dessert/cheesecake.jpeg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -49,38 +18,7 @@ export const DESSERT = {
             image: 'dessert/icecreamSandwich.jpg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -90,38 +28,7 @@ export const DESSERT = {
             image: 'dessert/jello.jpg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -131,38 +38,7 @@ export const DESSERT = {
             image: 'dessert/lavaCake.jpg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -172,38 +48,7 @@ export const DESSERT = {
             image: 'dessert/macarons.jpeg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -213,38 +58,7 @@ export const DESSERT = {
             image: 'dessert/milkshake.jpg',
             type: "dessert",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },

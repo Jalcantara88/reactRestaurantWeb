@@ -10,38 +10,7 @@ export const DRINKS = {
             image: 'drinks/grapefruitDrink.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -51,38 +20,7 @@ export const DRINKS = {
             image: 'drinks/watermelonFizz.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -92,38 +30,6 @@ export const DRINKS = {
             image: 'drinks/strawberryDrink.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
                 
             ],
         },
@@ -135,38 +41,7 @@ export const DRINKS = {
             image: 'drinks/alcoholic/beer.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+               
                 
             ],
         },
@@ -176,38 +51,7 @@ export const DRINKS = {
             image: 'drinks/alcoholic/redWine.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -217,38 +61,7 @@ export const DRINKS = {
             image: 'drinks/alcoholic/sangria.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },{
@@ -257,38 +70,6 @@ export const DRINKS = {
             image: 'drinks/alcoholic/blueCocktail.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
                 
             ],
         },
@@ -298,38 +79,7 @@ export const DRINKS = {
             image: 'drinks/alcoholic/rosemaryGrapefruitCocktail.jpeg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
+                
                 
             ],
         },
@@ -339,38 +89,6 @@ export const DRINKS = {
             image: 'drinks/alcoholic/sweetHotMama.jpg',
             type: "drink",
             ingredients: [
-                {
-                    name: "lettuce",
-                    default: true
-                },
-                {
-                    name: "tomato",
-                    default: true
-                },
-                {
-                    name: "onion",
-                    default: true
-                },
-                {
-                    name: "pickle",
-                    default: false
-                },
-                {
-                    name: "mayo",
-                    default: true
-                },
-                {
-                    name: "mustard",
-                    default: false
-                },
-                {
-                    name: "ketchup",
-                    default: false
-                },
-                {
-                    name: "cheese",
-                    default: false
-                },
                 
             ],
         },
