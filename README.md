@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+# React-Restaurant Template
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This is a React Resteraunt Template with these features:
+
+Home Page:
+
+    Featured Food: a carousel with featured food items to be shown on front page with a modal onClick.
+
+    Comments: a carousel with top 3 comments and modal display onClick.
+
+    Leave a comment: form that posts to comment array to be shown on array modal.
+
+    Google Maps: a simple google maps display at the footer of the site with marker placed at location address.
+
+Menu Page: 
+
+    Food Items Display component: Two custom display components for rendering through arrays holding "food items". One simple, one with 2 subsections.
+
+    Food item display modal: custom display modal that has a order form selectors for ingredients, sides, options, and add ons.
+
+    View order: Button section at bottom that has a modal holding entire current order.
+
+    Order Total / Place Order: a button with total order price that will also place order. Placing order pops up modal with payment form. Submitting the form sends order through email and alerts customer of placed order.
+
+
 
 ## Available Scripts
 

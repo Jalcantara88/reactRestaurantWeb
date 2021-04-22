@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import {
     Button,
     Carousel,
@@ -23,53 +23,89 @@ import emptyStar from '../../assets/starEmpty.png';
 
 import { REVIEWS } from '../../shared/reviews';
 
-function LeaveReviewModal(props) {
-  return(
-    <Modal isOpen={props.isOpen} toggle={props.toggle} className="rounded" centered style={{border: 0}}>
-      <ModalHeader toggle={props.toggle} className="py-1 text-white" style={{backgroundColor: "orange"}}>LEAVE A REVIEW</ModalHeader>
-      <ModalBody>
-      <Form>
-      <FormGroup>
-        <Label for="name">Name</Label>
-        <Input type="name" name="name" id="name" placeholder="full name here" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="ratingt">Rating</Label>
-        <Input type="select" name="rating" id="rating">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Input>
-      </FormGroup>
-      <FormGroup>
-        <Label for="quote">Quote</Label>
-        <Input type="textarea" name="quote" id="quote" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleFile">Picture</Label>
-        <Input type="file" name="file" id="exampleFile" />
-        <FormText color="muted">
-          PLease upload a picture to be used with your review.
-        </FormText>
-      </FormGroup>
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" />{' '}
-          I agree to let my review be used on React Resturant.com
-        </Label>
-      </FormGroup>
-      <Button className="bg-primary" onClick={() => {alert('thankyou for your review'); props.toggle(); }}>Submit</Button>
-    </Form>
-      </ModalBody>
-      
-    </Modal>
-  )
+var ALLREVIEWS = REVIEWS;
+
+class LeaveReviewModal extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: "",
+      quote: "",
+      rating: "",
+      image: "person3.jpg",
+      id: ""
+    };
+  }
+ 
+
+  handleReviewSubmit = (e) => {
+    
+    e.preventDefault();
+    this.setState({id: ALLREVIEWS.length});
+    console.log(this.state);
+    this.props.postReview(this.state);
+    alert('thankyou for your review'); 
+    this.props.toggle(); 
+  }
+
+  handeChange = (e) => {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+    console.log(e.target.name);
+    console.log(e.target.value);
+    this.setState({[name]: value });
+  }
+
+  render() {
+    return(
+      <Modal isOpen={this.props.isOpen} toggle={this.props.toggle} className="rounded" centered style={{border: 0}}>
+        <ModalHeader toggle={this.props.toggle} className="py-1 text-white" style={{backgroundColor: "orange"}}>LEAVE A REVIEW</ModalHeader>
+        <ModalBody>
+        <Form onSubmit={this.handleReviewSubmit}>
+        <FormGroup>
+          <Label for="name">Name</Label>
+          <Input type="name" name="name" id="name" placeholder="full name here" onChange={this.handeChange} required/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="quote">Quote</Label>
+          <Input type="textarea" name="quote" id="quote" onChange={this.handeChange} required/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="ratingt">Rating</Label>
+          <Input type="select" name="rating" id="rating" onChange={this.handeChange} required>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </Input>
+        </FormGroup>
+        
+        <FormGroup>
+          <Label for="exampleFile">Picture</Label>
+          <Input type="file" name="file" id="exampleFile" />
+          <FormText color="muted">
+            PLease upload a picture to be used with your review.
+          </FormText>
+        </FormGroup>
+        <FormGroup check>
+          <Label check>
+            <Input type="checkbox" required/>{' '}
+            I agree to let my review be used on React Resturant.com
+          </Label>
+        </FormGroup>
+        <Button type="submit" className="bg-primary" >Submit</Button>
+      </Form>
+        </ModalBody>
+        
+      </Modal>
+    );
+  }
 }
 
 function ReviewsModal(props) {
-  const allReviews = REVIEWS.map((item) => {
+  const allReviews = ALLREVIEWS.map((item) => {
     return(
       <div className="col-10 rounded bg-dark text-white py-2 mb-3">
         <div className="row">
@@ -143,14 +179,18 @@ function Reviews() {
         setActiveIndex(newIndex);
     }
 
+    const postReview = (review) => {
+      ALLREVIEWS.push(review)
+    }
 
 
-    const slides = REVIEWS.slice(0,3).map((item) => {
+
+    const slides = ALLREVIEWS.slice(0,3).map((item) => {
         return (
           <CarouselItem
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
-            key={item.toString()}
+            key={item.id}
             
             className="location-card rounded pl-4 p-3"
           >
@@ -213,7 +253,7 @@ function Reviews() {
             </div>
 
           <ReviewsModal isOpen={modal}  toggle={toggle} formToggle={formToggle}/>
-          <LeaveReviewModal isOpen={formModal} toggle={formToggle}/>
+          <LeaveReviewModal isOpen={formModal} toggle={formToggle} postReview={postReview}/>
         </>
     );
 }
